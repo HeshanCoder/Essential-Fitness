@@ -19,10 +19,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // guard let _ = (scene as? UIWindowScene) else { return }
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-               window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-               window?.windowScene = windowScene
-               window?.rootViewController = ViewController()
-               window?.makeKeyAndVisible()
+        //window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        //window?.windowScene = windowScene
+        let window = UIWindow(windowScene: windowScene)
+        
+        // setting HomeViewController inside a navigation controller
+        // navigation controller takes a rootViewController
+        let vc = HomeViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        window.rootViewController = nav
+        self.window = window
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

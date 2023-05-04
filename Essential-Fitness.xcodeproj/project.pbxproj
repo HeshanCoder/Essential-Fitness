@@ -15,6 +15,10 @@
 		A32A9FA32A03CC0B00D89FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32A9FA12A03CC0B00D89FB3 /* LaunchScreen.storyboard */; };
 		A32A9FAE2A03CC0B00D89FB3 /* Essential_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FAD2A03CC0B00D89FB3 /* Essential_FitnessTests.swift */; };
 		A32A9FB92A03CC0B00D89FB3 /* Essential_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FB82A03CC0B00D89FB3 /* Essential_FitnessUITests.swift */; };
+		A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FC82A0409CE00D89FB3 /* ForgotPasswordViewController.swift */; };
+		A32A9FCB2A0409F300D89FB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */; };
+		A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */; };
+		A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		A32A9FB42A03CC0B00D89FB3 /* Essential-FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Essential-FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32A9FB82A03CC0B00D89FB3 /* Essential_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Essential_FitnessUITests.swift; sourceTree = "<group>"; };
 		A32A9FBA2A03CC0B00D89FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32A9FC82A0409CE00D89FB3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		A32A9F922A03CC0700D89FB3 /* Essential-Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A32A9FD02A040A7400D89FB3 /* Views */,
 				A32A9FC72A03E13B00D89FB3 /* Controllers */,
 				A32A9FC62A03E12500D89FB3 /* Resources */,
 				A32A9F9F2A03CC0B00D89FB3 /* Assets.xcassets */,
@@ -140,8 +149,19 @@
 			isa = PBXGroup;
 			children = (
 				A32A9F972A03CC0700D89FB3 /* ViewController.swift */,
+				A32A9FC82A0409CE00D89FB3 /* ForgotPasswordViewController.swift */,
+				A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */,
+				A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */,
+				A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A32A9FD02A040A7400D89FB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32A9FCB2A0409F300D89FB3 /* LoginViewController.swift in Sources */,
 				A32A9F982A03CC0700D89FB3 /* ViewController.swift in Sources */,
+				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
+				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
+				A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */,
 				A32A9F9E2A03CC0700D89FB3 /* Essential_Fitness.xcdatamodeld in Sources */,
 				A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */,
 				A32A9F962A03CC0700D89FB3 /* SceneDelegate.swift in Sources */,
