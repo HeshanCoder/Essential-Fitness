@@ -32,20 +32,30 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapSignIn(){
-        print("DEBUG PRINT:", "didTapSignIn")
+        //print("DEBUG PRINT:", "didTapSignIn")
+        let vc = HomeViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
     }
     
     @objc func didTapNewUser(){
-        print("DEBUG PRINT:", "didTapNewUser")
+        //print("DEBUG PRINT:", "didTapNewUser")
+        let vc = RegisterViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func didTapForgotPassword(){
-        print("DEBUG PRINT:", "didTapNewUser")
+        //print("DEBUG PRINT:", "didTapNewUser")
+        let vc = ForgotPasswordViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        // dev perpose
+        self.didTapNewUser()
     }
     
     func setUpUI(){
