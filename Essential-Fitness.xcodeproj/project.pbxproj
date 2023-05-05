@@ -23,6 +23,7 @@
 		A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */; };
 		A331EC2D2A04D71300709897 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EC2C2A04D71300709897 /* AuthHeaderView.swift */; };
 		A331EC2F2A04EDE000709897 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EC2E2A04EDE000709897 /* CustomTextField.swift */; };
+		A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F72DB2A0555DC006072CD /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A331EC2C2A04D71300709897 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		A331EC2E2A04EDE000709897 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A38F72DB2A0555DC006072CD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		A32A9F922A03CC0700D89FB3 /* Essential-Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A38F72DA2A055577006072CD /* Managers */,
 				A32A9FD02A040A7400D89FB3 /* Views */,
 				A32A9FC72A03E13B00D89FB3 /* Controllers */,
 				A32A9FC62A03E12500D89FB3 /* Resources */,
@@ -174,6 +177,14 @@
 				A31A759F2A051F7A00256B62 /* CustomButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A38F72DA2A055577006072CD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A38F72DB2A0555DC006072CD /* AlertManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
 				A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */,
+				A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */,
 				A331EC2F2A04EDE000709897 /* CustomTextField.swift in Sources */,
 				A331EC2D2A04D71300709897 /* AuthHeaderView.swift in Sources */,
 				A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */,
