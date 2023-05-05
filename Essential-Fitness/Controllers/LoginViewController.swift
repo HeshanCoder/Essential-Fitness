@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     // using created AuthHeaderView UIView custom componnent
     private let headerView = AuthHeaderView(title: "Sign In", subTitle: "Sign into Your Account")
     
-    private let usernameField = CustomTextField(fieldType: .username)
+    private let emailField = CustomTextField(fieldType: .email)
     private let passwordField = CustomTextField(fieldType: .password)
     
     private let signInButton = CustomButton(title: "Sign In", hasBackground: true, fontSize: .big)
@@ -34,8 +34,11 @@ class LoginViewController: UIViewController {
     @objc func didTapSignIn(){
         //print("DEBUG PRINT:", "didTapSignIn")
         let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        //vc.modalPresentationStyle = .fullScreen
+        //self.present(vc, animated: false, completion: nil)
+        self.present(nav, animated: false, completion: nil)
     }
     
     @objc func didTapNewUser(){
@@ -60,14 +63,14 @@ class LoginViewController: UIViewController {
     
     func setUpUI(){
         self.view.addSubview(headerView)
-        self.view.addSubview(usernameField)
+        self.view.addSubview(emailField)
         self.view.addSubview(passwordField)
         self.view.addSubview(signInButton)
         self.view.addSubview(newUserButton)
         self.view.addSubview(forgotPasswordButton)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        usernameField.translatesAutoresizingMaskIntoConstraints = false
+        emailField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         newUserButton.translatesAutoresizingMaskIntoConstraints = false
@@ -80,12 +83,12 @@ class LoginViewController: UIViewController {
             self.headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.headerView.heightAnchor.constraint(equalToConstant: 222),
             
-            self.usernameField.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 12),
-            self.usernameField.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
-            self.usernameField.heightAnchor.constraint(equalToConstant: 55),
-            self.usernameField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
+            self.emailField.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 12),
+            self.emailField.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
+            self.emailField.heightAnchor.constraint(equalToConstant: 55),
+            self.emailField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
             
-            self.passwordField.topAnchor.constraint(equalTo: self.usernameField.bottomAnchor, constant: 22),
+            self.passwordField.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 22),
             self.passwordField.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
             self.passwordField.heightAnchor.constraint(equalToConstant: 55),
             self.passwordField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
