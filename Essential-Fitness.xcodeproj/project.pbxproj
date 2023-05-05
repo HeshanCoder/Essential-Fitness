@@ -19,6 +19,7 @@
 		A32A9FCB2A0409F300D89FB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */; };
 		A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */; };
 		A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */; };
+		A331EC2D2A04D71300709897 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A331EC2C2A04D71300709897 /* AuthHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A331EC2C2A04D71300709897 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		A32A9FD02A040A7400D89FB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A331EC2C2A04D71300709897 /* AuthHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				A32A9F982A03CC0700D89FB3 /* ViewController.swift in Sources */,
 				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
+				A331EC2D2A04D71300709897 /* AuthHeaderView.swift in Sources */,
 				A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */,
 				A32A9F9E2A03CC0700D89FB3 /* Essential_Fitness.xcdatamodeld in Sources */,
 				A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */,

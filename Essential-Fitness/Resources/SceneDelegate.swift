@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // setting HomeViewController inside a navigation controller
         // navigation controller takes a rootViewController
-        let vc = HomeViewController()
+        let vc = LoginViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         window.rootViewController = nav
