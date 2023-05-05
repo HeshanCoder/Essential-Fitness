@@ -20,12 +20,25 @@ class RegisterViewController: UIViewController {
     private let signInButton = CustomButton(title: "Alredy have an account? Sign In.", fontSize: .med)
     
     private let termTextView: UITextView = {
+        
+        // by uding this we can embed urls to part of the string
+        let attributedString = NSMutableAttributedString(string: "By creating an account, you agree to our Terms & Conditions and you acknowledge that you have read our Privacy Policy.")
+        
+        attributedString.addAttribute(.link, value: "terms://termsAndConditions", range: (attributedString.string as NSString).range(of: "Terms & Conditions"))
+        
+        attributedString.addAttribute(.link, value: "privacy://privacyPolicy", range: (attributedString.string as NSString).range(of: "Privacy Policy"))
+        
         let tv = UITextView()
-        tv.text = "By creating an  account you agree with our terms and conditions"
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12), range: (attributedString.string as NSString).range(of: "By creating an account, you agree to our Terms & Conditions and you acknowledge that you have read our Privacy Policy."))
+        
+        // set the link colors. this takes the NSMutableAttributedString values as Dictionary and apply colors
+        tv.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
         tv.backgroundColor = .clear
+        tv.attributedText = attributedString
         tv.textColor = .label
         tv.isSelectable = true
         tv.isEditable = false
+        tv.delaysContentTouches = false
         tv.isScrollEnabled = false
         return tv
     }()
@@ -33,24 +46,32 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-
+        
         self.setUpUI()
+        
+        self.termTextView.delegate = self
         
         // Registering events. (Target: is the button itself, action: an action to happend. exampale a method, for : UI event)
         self.signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
-       
+        
     }
     
     @objc func didTapSignUp(){
         print("DEBUG PRINT:", "didTapSignUp")
+        /*
+         let webViewer = WebViewerController(with: "https://firebase.google.com/support/privacy#:~:text=Firebase%20restricts%20access%20to%20a,In%20and%202%2Dfactor%20authentication.")
+         
+         let nav = UINavigationController(rootViewController: webViewer)
+         self.present(nav, animated: true, completion: nil)
+         */
     }
     
     @objc func didTapSignIn(){
         //print("DEBUG PRINT:", "didTapSignUp")
         self.navigationController?.popToRootViewController(animated: true)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -75,7 +96,7 @@ class RegisterViewController: UIViewController {
         self.signUpButton.translatesAutoresizingMaskIntoConstraints = false
         self.termTextView.translatesAutoresizingMaskIntoConstraints = false
         self.signInButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         
         NSLayoutConstraint.activate([
             // layoutMarginsGuide will prevent app screen go over status bar
@@ -118,5 +139,35 @@ class RegisterViewController: UIViewController {
         //headerView.backgroundColor = .red
         //usernameField.backgroundColor = .green
     }
+    
+}
 
+extension RegisterViewController: UITextViewDelegate {
+    
+    // should Interact With the URL of the UITextView
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        
+        // if the url schems has the word "terms" or "privacy"
+        if URL.scheme == "terms" {
+            self.showWebViewerController(with: "https://policies.google.com/terms?hl=en")
+        } else if URL.scheme == "privacy" {
+            self.showWebViewerController(with: "https://policies.google.com/privacy?hl=en")
+        }
+        
+        return true
+    }
+    
+    private func showWebViewerController(with urlString: String) {
+        let vc = WebViewerController(with: urlString)
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
+    }
+    
+    // re set to default after did tap on the links
+    // Tells the delegate when the text selection changes in the specified text view.
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        textView.delegate = nil
+        textView.selectedTextRange = nil
+        textView.delegate = self
+    }
 }

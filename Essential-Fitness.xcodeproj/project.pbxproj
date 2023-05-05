@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A31A75A02A051F7A00256B62 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A759F2A051F7A00256B62 /* CustomButton.swift */; };
+		A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A75A12A053B0F00256B62 /* WebViewerController.swift */; };
 		A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9F932A03CC0700D89FB3 /* AppDelegate.swift */; };
 		A32A9F962A03CC0700D89FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9F952A03CC0700D89FB3 /* SceneDelegate.swift */; };
 		A32A9F982A03CC0700D89FB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A9F972A03CC0700D89FB3 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		A31A759F2A051F7A00256B62 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A31A75A12A053B0F00256B62 /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
 		A32A9F902A03CC0700D89FB3 /* Essential-Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Essential-Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32A9F932A03CC0700D89FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A32A9F952A03CC0700D89FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */,
 				A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */,
 				A32A9FCE2A040A3A00D89FB3 /* HomeViewController.swift */,
+				A31A75A12A053B0F00256B62 /* WebViewerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				A32A9F982A03CC0700D89FB3 /* ViewController.swift in Sources */,
 				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
+				A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */,
 				A331EC2F2A04EDE000709897 /* CustomTextField.swift in Sources */,
 				A331EC2D2A04D71300709897 /* AuthHeaderView.swift in Sources */,
 				A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */,

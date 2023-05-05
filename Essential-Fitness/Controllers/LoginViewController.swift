@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         // dev perpose
-        self.didTapNewUser()
+        //self.didTapNewUser()
     }
     
     func setUpUI(){
