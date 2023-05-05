@@ -64,7 +64,9 @@ class AuthHeaderView: UIView {
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.imageView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 16),
+            
+            // can replace self.layoutMarginsGuide.topAnchor with self.topAnchor if the parent view is already using self.layoutMarginsGuide.topAnchor
+            self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
             self.imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.imageView.widthAnchor.constraint(equalToConstant: 90),
             self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor),
