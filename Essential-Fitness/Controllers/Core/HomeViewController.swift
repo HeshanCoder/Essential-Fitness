@@ -40,14 +40,18 @@ class HomeViewController: UIViewController {
         //self.setupUI()
         //self.label.text = "Fitness App"
         
-        // add this table to our view
-        view.addSubview(homeFeedTable)
-        
+    			
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
         // hero section
         //homeFeedTable.tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        //view.bounds.width = full width
+        let headerView = MainHeaderUIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        homeFeedTable.tableHeaderView = headerView
+        
+        // add this table to our view
+        view.addSubview(homeFeedTable)
     }
     
     // Called to notify the view controller that its view has just laid out its subviews.
