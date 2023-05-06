@@ -45,6 +45,9 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        // hero section
+        //homeFeedTable.tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
     // Called to notify the view controller that its view has just laid out its subviews.
