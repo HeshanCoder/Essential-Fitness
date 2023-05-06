@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     // using created AuthHeaderView UIView custom componnent
     private let headerView = AuthHeaderView(title: "Sign In", subTitle: "Sign into Your Account")
     
@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-
+        
         self.setUpUI()
         
         // Registering events. (Target: is the button itself, action: an action to happend. exampale a method, for : UI event)
@@ -33,12 +33,40 @@ class LoginViewController: UIViewController {
     
     @objc func didTapSignIn(){
         //print("DEBUG PRINT:", "didTapSignIn")
-        let vc = HomeViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        //vc.modalPresentationStyle = .fullScreen
-        //self.present(vc, animated: false, completion: nil)
-        self.present(nav, animated: false, completion: nil)
+        /*
+         let vc = HomeViewController()
+         let nav = UINavigationController(rootViewController: vc)
+         nav.modalPresentationStyle = .fullScreen
+         //vc.modalPresentationStyle = .fullScreen
+         //self.present(vc, animated: false, completion: nil)
+         self.present(nav, animated: false, completion: nil)
+         
+         */
+        let loginRequest = LoginUserRequest(
+            email: self.emailField.text ?? "",
+            password: self.passwordField.text ?? ""
+        )
+        
+        if !Validator.isValidEmail(for: loginRequest.email) {
+            AlertManager.showInvalidEmailAlert(on: self)
+            return
+        }
+
+        if !Validator.isPasswordValid(for: loginRequest.password) {
+            AlertManager.showInvalidPasswordAlert(on: self)
+            return
+        }
+        
+        AuthService.shared.signIn(with: loginRequest) { error in
+            if let error = error {
+                AlertManager.showSignInErrorAlert(on: self, with: error)
+                return
+            }
+            
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.checkAuthentication()
+            }
+        }
     }
     
     @objc func didTapNewUser(){
@@ -114,5 +142,5 @@ class LoginViewController: UIViewController {
         //headerView.backgroundColor = .red
         //usernameField.backgroundColor = .green
     }
-
+    
 }
