@@ -39,28 +39,39 @@ class HomeViewController: UIViewController {
         
         //self.setupUI()
         //self.label.text = "Fitness App"
+        // add this table to our view
+        view.addSubview(homeFeedTable)
         
-    			
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
         // hero section
+        configureNavbar()
         //homeFeedTable.tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         //view.bounds.width = full width
         let headerView = MainHeaderUIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         
-        // add this table to our view
-        view.addSubview(homeFeedTable)
+        // set this to show in whole view
+        homeFeedTable.frame  = view.bounds
     }
     
     // Called to notify the view controller that its view has just laid out its subviews.
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // set this to show in whole view
-        homeFeedTable.frame  = view.bounds
+        
     }
-    
+    private func configureNavbar() {
+        var image = UIImage(named: "App_icon") // grab the image first
+        image = image?.withRenderingMode(.alwaysOriginal) // force the ios system use the Image as it is. (not in default blue color)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+        ]
+        navigationController?.navigationBar.tintColor = .white
+    }
     private func setupUI() {
         self.view.backgroundColor = .systemBackground
         // Bar Button type button
@@ -114,9 +125,9 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         
         /*
          // which cell we gonna deque for each row. set it with Cell Reuseble Identifier
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
-            cell.textLabel?.text = "hellow World"
-            return cell
+         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
+         cell.textLabel?.text = "hellow World"
+         return cell
          */
         
         // properly set dequeueReusableCell with our custome table view cell and handle the cell
@@ -135,5 +146,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     // set height for header in section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+    
+    // for navigation bar to dtick on the top while scroling
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = view.safeAreaInsets.top // ofcest of the top.
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
 }
