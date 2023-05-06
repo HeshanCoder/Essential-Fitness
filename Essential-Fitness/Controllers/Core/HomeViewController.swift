@@ -10,11 +10,15 @@ import UIKit
 class HomeViewController: UIViewController {
     // this way of createing componet is called annonimouse closure pattern
     private let homeFeedTable: UITableView = {
-        let table = UITableView()
+        
+        // .grouped like apple users setting app
+        // homeFeedTable.frame  = view.bounds in viewDidLayoutSubviews()
+        let table = UITableView(frame: .zero, style: .grouped)
         
         // register the table
-        // register this as reusable identifire as cell
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        // register our custome view cell
+        // now this tableView is registerd with ColletionViewTableViewCell and it knows when to load the cell
+        table.register(ColletionViewTableViewCell.self, forCellReuseIdentifier: ColletionViewTableViewCell.identifire)
         return table
     }()
     
@@ -54,13 +58,13 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         // Bar Button type button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapLogout))
-         self.view.addSubview(label)
-         label.translatesAutoresizingMaskIntoConstraints = false
-         
-         NSLayoutConstraint.activate([
-         label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-         ])
+        self.view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
     
     @objc private func didTapLogout() {
@@ -81,24 +85,37 @@ class HomeViewController: UIViewController {
     }
 }
 
-/// extention help to keep our controllers clean.
+//extention help to keep our controllers clean.
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
+    // methode tho define sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 20
+    }
     
-    //numberOfRowsInSection
+    // numberOfRowsInSection
+    // this methode define how may rows in each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // we must implement related methodes
         
         // Number of Rows in each Section
-        return 20
+        return 1
     }
     
-    //callForRowAt
+    //cell for this row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         // we must implement related methodes
         
-        // which cell we gonna deque for each row. set it with Cell Reuseble Identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
-        cell.textLabel?.text = "hellow World"
+        /*
+         // which cell we gonna deque for each row. set it with Cell Reuseble Identifier
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
+            cell.textLabel?.text = "hellow World"
+            return cell
+         */
+        
+        // properly set dequeueReusableCell with our custome table view cell and handle the cell
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: ColletionViewTableViewCell.identifire, for: indexPath) as? ColletionViewTableViewCell else {
+            return UITableViewCell()
+        }
         return cell
         
     }
