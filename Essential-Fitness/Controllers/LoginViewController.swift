@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
         
         // dev perpose
         //self.didTapNewUser()
-        AlertManager.showSignInErrorAlert(on: self)
+        //AlertManager.showSignInErrorAlert(on: self)
     }
     
     func setUpUI(){

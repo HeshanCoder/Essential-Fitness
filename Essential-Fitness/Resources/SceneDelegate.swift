@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -17,36 +18,82 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         // guard let _ = (scene as? UIWindowScene) else { return }
-        
+        /*
+         guard let windowScene = (scene as? UIWindowScene) else { return }
+         //window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+         //window?.windowScene = windowScene
+         let window = UIWindow(windowScene: windowScene)
+         
+         // setting HomeViewController inside a navigation controller
+         // navigation controller takes a rootViewController
+         let vc = LoginViewController()
+         let nav = UINavigationController(rootViewController: vc)
+         nav.modalPresentationStyle = .fullScreen
+         window.rootViewController = nav
+         self.window = window
+         self.window?.makeKeyAndVisible()
+         
+         let userRequest = RegiserUserRequest(
+         username: "fitnessEsGym",
+         email: "fitnessEsGym@fitnessEsGym.com",
+         password: "password1234"
+         )
+         
+         AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
+         if let error = error {
+         print(error.localizedDescription)
+         return
+         }
+         
+         print("wasRegistered", wasRegistered)
+         }
+         */
+        self.setupWindow(with: scene)
+        self.checkAuthentication()
+    }
+    
+    // pass the UIScene and set it up in this Private func
+    private func setupWindow(with scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        //window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        //window?.windowScene = windowScene
         let window = UIWindow(windowScene: windowScene)
-        
-        // setting HomeViewController inside a navigation controller
-        // navigation controller takes a rootViewController
-        let vc = LoginViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        window.rootViewController = nav
         self.window = window
         self.window?.makeKeyAndVisible()
-        
-        let userRequest = RegiserUserRequest(
-            username: "fitnessEsGym",
-            email: "fitnessEsGym@fitnessEsGym.com",
-            password: "password1234"
-        )
-        
-        AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            print("wasRegistered", wasRegistered)
+    }
+    
+    public func checkAuthentication() {
+        // firebase keep track the user is loged in or not
+        if Auth.auth().currentUser == nil {
+            self.goToController(with: LoginViewController())
+        } else {
+            self.goToController(with: HomeViewController())
         }
     }
+    
+    // adding animation to views
+    private func goToController(with viewController: UIViewController) {
+        // because we are working on UI view we better to work in main thread
+        // use method with withDuration, animation and completion
+        DispatchQueue.main.async { [weak self] in
+            
+            // this will bleand 2 diffrent states
+            UIView.animate(withDuration: 0.25) {
+                // first set the black screen
+                self?.window?.layer.opacity = 0
+                
+            } completion: { [weak self] _ in
+                
+                let nav = UINavigationController(rootViewController: viewController)
+                nav.modalPresentationStyle = .fullScreen
+                self?.window?.rootViewController = nav
+                
+                UIView.animate(withDuration: 0.25) { [weak self] in
+                    // then remove the black screen
+                    self?.window?.layer.opacity = 1
+                }
+            }
+        }
+    }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
