@@ -31,6 +31,7 @@
 		A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58602A06545800725029 /* RegiserUserRequest.swift */; };
 		A36F58632A065CC900725029 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58622A065CC900725029 /* LoginUserRequest.swift */; };
 		A36F58652A06697200725029 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58642A06697200725029 /* Validator.swift */; };
+		A36F58672A067BD700725029 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58662A067BD700725029 /* User.swift */; };
 		A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F72DB2A0555DC006072CD /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		A36F58602A06545800725029 /* RegiserUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiserUserRequest.swift; sourceTree = "<group>"; };
 		A36F58622A065CC900725029 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		A36F58642A06697200725029 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		A36F58662A067BD700725029 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A38F72DB2A0555DC006072CD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +204,7 @@
 			children = (
 				A36F58602A06545800725029 /* RegiserUserRequest.swift */,
 				A36F58622A065CC900725029 /* LoginUserRequest.swift */,
+				A36F58662A067BD700725029 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				A32A9F9E2A03CC0700D89FB3 /* Essential_Fitness.xcdatamodeld in Sources */,
 				A36F58652A06697200725029 /* Validator.swift in Sources */,
 				A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */,
+				A36F58672A067BD700725029 /* User.swift in Sources */,
 				A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */,
 				A32A9F962A03CC0700D89FB3 /* SceneDelegate.swift in Sources */,
 				A36F585E2A0652B100725029 /* AuthService.swift in Sources */,

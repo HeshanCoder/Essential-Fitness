@@ -63,7 +63,7 @@ class AuthService {
                 }
         }
     }
-   
+    
     // overlaod method with email and password
     public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?)->Void) {
         Auth.auth().signIn(
@@ -87,4 +87,40 @@ class AuthService {
             completion(error)
         }
     }
+    
+    public func forgotPassword(with email: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            completion(error)
+        }
+    }
+    
+    public func fetchUser(completion: @escaping (User?, Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        
+        let db = Firestore.firestore()
+        
+        // GET user from the user Collection using current user UID
+        db.collection("users")
+            .document(userUID)
+            .getDocument { snapshot, error in
+                if let error = error {
+                    completion(nil, error)
+                    return
+                }
+                
+                // document snapShot, and snapshotData is a Dictionary
+                if let snapshot = snapshot,
+                   let snapshotData = snapshot.data(),
+                   let username = snapshotData["username"] as? String,
+                   let email = snapshotData["email"] as? String {
+                    let user = User(username: username, email: email, userUID: userUID)
+                    completion(user, nil)
+                }
+                
+            }
+    }
+    
+    //if let User = User{
+      //  // do somethig
+   // }
 }
