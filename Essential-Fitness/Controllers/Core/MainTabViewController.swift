@@ -13,7 +13,7 @@ class MainTabViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
         ///*
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        let vc1 = UINavigationController(rootViewController: HomeViewController1())
         let vc2 = UINavigationController(rootViewController: MyPlanViewController())
         let vc3 = UINavigationController(rootViewController: BMIViewController())
         let vc4 = UINavigationController(rootViewController: HelpViewController())
@@ -21,7 +21,7 @@ class MainTabViewController: UITabBarController {
         // https://sarunw.com/posts/hide-navigation-bar-on-scroll-in-uikit/
         // hide top navogation bar
         //vc1.isNavigationBarHidden = false
-        vc2.isNavigationBarHidden = true
+        //vc2.isNavigationBarHidden = true
         vc3.isNavigationBarHidden = true
         vc4.isNavigationBarHidden = true
         

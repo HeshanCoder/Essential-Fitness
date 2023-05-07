@@ -9,6 +9,18 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+
+// use dev doc for hemoviedb.org
+struct Constants {
+    //static let API_KEY = "f81916692ac224fd863aee5a74c973e0"
+    //static let baseURL = "https://api.themoviedb.org"
+    /// go to google dev conosle create a project create credential get the API key
+    /// got to the YouTube API and follow the documentation
+    static let YoutubeAPI_KEY = "AIzaSyDIPrSLgGLxX67mAXuGvT8kvsE8mklRGys"
+    static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
+    
+}
+
 // create an error
 enum APIError: Error {
     case failedTogetData
@@ -83,7 +95,7 @@ class APICaller {
         }
     }
     
-    func getUpcomingMovies(completion: @escaping (Result<[Workout], Error>) -> Void) {
+    func getUpcomingWorkouts(completion: @escaping (Result<[Workout], Error>) -> Void) {
         let db = Firestore.firestore()
         let collection = db.collection("upperbodyworkoutwehghtloss")
         
@@ -146,6 +158,31 @@ class APICaller {
             completion(.success(upperbodyworkoutwehghtlossCollection))
         }
     }
+    
+    func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
+            
+            
+            guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+            guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.YoutubeAPI_KEY)") else {return}
+            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                
+                do {
+                    let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                    
+                    completion(.success(results.items[0]))
+                    
+                    
+                } catch {
+                    completion(.failure(error))
+                    print(error.localizedDescription)
+                }
+                
+            }
+            task.resume()
+        }
     
 }
 

@@ -191,8 +191,7 @@
                     }
                 }
             case Sections.Upcoming.rawValue:
-                
-                APICaller.shared.getUpcomingMovies{ result in
+                APICaller.shared.getUpcomingWorkouts{ result in
                     switch result {
                     case .success(let titles):
                         cell.configure(with: titles)

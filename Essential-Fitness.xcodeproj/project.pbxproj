@@ -44,6 +44,12 @@
 		A38A49422A08046E0057855E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A38A49412A08046E0057855E /* SDWebImage */; };
 		A38A49442A08046E0057855E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A38A49432A08046E0057855E /* SDWebImageMapKit */; };
 		A38A49462A0804C30057855E /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A49452A0804C30057855E /* TitleCollectionViewCell.swift */; };
+		A38A49482A0809F70057855E /* HomeViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A49472A0809F70057855E /* HomeViewController1.swift */; };
+		A38A494A2A080C880057855E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A49492A080C880057855E /* TitleTableViewCell.swift */; };
+		A38A494D2A080CF00057855E /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A494C2A080CF00057855E /* TitleViewModel.swift */; };
+		A38A494F2A080E9E0057855E /* YoutubeSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A494E2A080E9E0057855E /* YoutubeSearchResponse.swift */; };
+		A38A49512A080EF90057855E /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A49502A080EF90057855E /* TitlePreviewViewModel.swift */; };
+		A38A49532A080F610057855E /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A49522A080F610057855E /* TitlePreviewViewController.swift */; };
 		A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F72DB2A0555DC006072CD /* AlertManager.swift */; };
 		A3B34F692A079154008F175D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A3B34F682A079154008F175D /* FirebaseFirestoreSwift-Beta */; };
 		A3B34F6B2A07C050008F175D /* TestAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B34F6A2A07C050008F175D /* TestAPIs.swift */; };
@@ -108,6 +114,12 @@
 		A36F58712A06863B00725029 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		A38A493E2A0800A50057855E /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		A38A49452A0804C30057855E /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		A38A49472A0809F70057855E /* HomeViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
+		A38A49492A080C880057855E /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		A38A494C2A080CF00057855E /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		A38A494E2A080E9E0057855E /* YoutubeSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeSearchResponse.swift; sourceTree = "<group>"; };
+		A38A49502A080EF90057855E /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
+		A38A49522A080F610057855E /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		A38F72DB2A0555DC006072CD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A3B34F6A2A07C050008F175D /* TestAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIs.swift; sourceTree = "<group>"; };
 		A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upfatburn.jpg; sourceTree = "<group>"; };
@@ -171,6 +183,7 @@
 		A32A9F922A03CC0700D89FB3 /* Essential-Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A38A494B2A080CB30057855E /* ViewModel */,
 				A36F585F2A06542800725029 /* Models */,
 				A38F72DA2A055577006072CD /* Managers */,
 				A32A9FD02A040A7400D89FB3 /* Views */,
@@ -222,6 +235,7 @@
 				A32A9FCA2A0409F300D89FB3 /* LoginViewController.swift */,
 				A32A9FCC2A040A1900D89FB3 /* RegisterViewController.swift */,
 				A31A75A12A053B0F00256B62 /* WebViewerController.swift */,
+				A38A49522A080F610057855E /* TitlePreviewViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +249,7 @@
 				A33B7D2C2A06B4BB001D23D2 /* ColletionViewTableViewCell.swift */,
 				A33B7D2E2A06C843001D23D2 /* MainHeaderUIView.swift */,
 				A38A49452A0804C30057855E /* TitleCollectionViewCell.swift */,
+				A38A49492A080C880057855E /* TitleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +261,7 @@
 				A36F58622A065CC900725029 /* LoginUserRequest.swift */,
 				A36F58662A067BD700725029 /* User.swift */,
 				A33B7D322A06D19E001D23D2 /* Workout.swift */,
+				A38A494E2A080E9E0057855E /* YoutubeSearchResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,8 +274,18 @@
 				A36F586B2A06843300725029 /* MyPlanViewController.swift */,
 				A36F586D2A06846F00725029 /* BMIViewController.swift */,
 				A36F58712A06863B00725029 /* HelpViewController.swift */,
+				A38A49472A0809F70057855E /* HomeViewController1.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		A38A494B2A080CB30057855E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A38A494C2A080CF00057855E /* TitleViewModel.swift */,
+				A38A49502A080EF90057855E /* TitlePreviewViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A38F72DA2A055577006072CD /* Managers */ = {
@@ -438,13 +464,16 @@
 			files = (
 				A36F586A2A0682AB00725029 /* MainTabViewController.swift in Sources */,
 				A36F586E2A06846F00725029 /* BMIViewController.swift in Sources */,
+				A38A49532A080F610057855E /* TitlePreviewViewController.swift in Sources */,
 				A32A9FCB2A0409F300D89FB3 /* LoginViewController.swift in Sources */,
 				A38A49462A0804C30057855E /* TitleCollectionViewCell.swift in Sources */,
 				A33B7D332A06D19E001D23D2 /* Workout.swift in Sources */,
 				A32A9F982A03CC0700D89FB3 /* ViewController.swift in Sources */,
+				A38A49512A080EF90057855E /* TitlePreviewViewModel.swift in Sources */,
 				A36F58632A065CC900725029 /* LoginUserRequest.swift in Sources */,
 				A33B7D2D2A06B4BB001D23D2 /* ColletionViewTableViewCell.swift in Sources */,
 				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
+				A38A494F2A080E9E0057855E /* YoutubeSearchResponse.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
 				A33B7D2F2A06C843001D23D2 /* MainHeaderUIView.swift in Sources */,
 				A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */,
@@ -455,14 +484,17 @@
 				A36F58722A06863B00725029 /* HelpViewController.swift in Sources */,
 				A32A9FC92A0409CE00D89FB3 /* ForgotPasswordViewController.swift in Sources */,
 				A31A75A02A051F7A00256B62 /* CustomButton.swift in Sources */,
+				A38A49482A0809F70057855E /* HomeViewController1.swift in Sources */,
 				A32A9F9E2A03CC0700D89FB3 /* Essential_Fitness.xcdatamodeld in Sources */,
 				A3B34F6B2A07C050008F175D /* TestAPIs.swift in Sources */,
 				A38A493F2A0800A50057855E /* Extention.swift in Sources */,
 				A36F58652A06697200725029 /* Validator.swift in Sources */,
 				A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */,
+				A38A494A2A080C880057855E /* TitleTableViewCell.swift in Sources */,
 				A36F58672A067BD700725029 /* User.swift in Sources */,
 				A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */,
 				A36F586C2A06843300725029 /* MyPlanViewController.swift in Sources */,
+				A38A494D2A080CF00057855E /* TitleViewModel.swift in Sources */,
 				A32A9F962A03CC0700D89FB3 /* SceneDelegate.swift in Sources */,
 				A36F585E2A0652B100725029 /* AuthService.swift in Sources */,
 			);
