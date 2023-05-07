@@ -7,6 +7,14 @@
     
     import UIKit
     
+    enum Sections: Int {
+        case TrendingExercrice = 0
+        case TrendingWorkout = 1
+        case Popular = 2
+        case Upcoming = 3
+        case TopRated = 4
+    }
+    
     class HomeViewController: UIViewController {
         let sectionTitles: [String] = ["Upper Body", "Cardio", "Arms", "Abs", "Leg"]
         // this way of createing componet is called annonimouse closure pattern
@@ -149,6 +157,64 @@
             guard let cell =  tableView.dequeueReusableCell(withIdentifier: ColletionViewTableViewCell.identifire, for: indexPath) as? ColletionViewTableViewCell else {
                 return UITableViewCell()
             }
+            
+            switch indexPath.section {
+            // handle the secton for each case and we need the raw value of it
+            case Sections.TrendingExercrice.rawValue:
+                APICaller.shared.getTrendingExersices { result in
+                    // call the apai and get the result
+                    switch result {
+                    // hangle success and failures
+                    case .success(let worksouts):
+                        cell.configure(with: worksouts)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.TrendingWorkout.rawValue:
+                APICaller.shared.getPopular{ result in
+                    switch result {
+                    case .success(let worksouts):
+                        cell.configure(with: worksouts)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            case Sections.Popular.rawValue:
+                APICaller.shared.getPopular { result in
+                    switch result {
+                    case .success(let worksouts):
+                        cell.configure(with: worksouts)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            case Sections.Upcoming.rawValue:
+                
+                APICaller.shared.getUpcomingMovies{ result in
+                    switch result {
+                    case .success(let titles):
+                        cell.configure(with: titles)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.TopRated.rawValue:
+                APICaller.shared.getPopular { result in
+                    switch result {
+                    case .success(let titles):
+                        cell.configure(with: titles)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            default:
+                return UITableViewCell()
+                
+            }
+            
             return cell
             
         }
