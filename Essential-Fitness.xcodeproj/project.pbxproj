@@ -40,6 +40,7 @@
 		A36F586C2A06843300725029 /* MyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F586B2A06843300725029 /* MyPlanViewController.swift */; };
 		A36F586E2A06846F00725029 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F586D2A06846F00725029 /* BMIViewController.swift */; };
 		A36F58722A06863B00725029 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58712A06863B00725029 /* HelpViewController.swift */; };
+		A38A493F2A0800A50057855E /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A493E2A0800A50057855E /* Extention.swift */; };
 		A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F72DB2A0555DC006072CD /* AlertManager.swift */; };
 		A3B34F692A079154008F175D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A3B34F682A079154008F175D /* FirebaseFirestoreSwift-Beta */; };
 		A3B34F6B2A07C050008F175D /* TestAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B34F6A2A07C050008F175D /* TestAPIs.swift */; };
@@ -102,6 +103,7 @@
 		A36F586B2A06843300725029 /* MyPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanViewController.swift; sourceTree = "<group>"; };
 		A36F586D2A06846F00725029 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		A36F58712A06863B00725029 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		A38A493E2A0800A50057855E /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		A38F72DB2A0555DC006072CD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A3B34F6A2A07C050008F175D /* TestAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIs.swift; sourceTree = "<group>"; };
 		A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upfatburn.jpg; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				A32A9F952A03CC0700D89FB3 /* SceneDelegate.swift */,
 				A32A9F932A03CC0700D89FB3 /* AppDelegate.swift */,
 				A331EB9B2A061A5C0023BCD3 /* GoogleService-Info.plist */,
+				A38A493E2A0800A50057855E /* Extention.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				A31A75A02A051F7A00256B62 /* CustomButton.swift in Sources */,
 				A32A9F9E2A03CC0700D89FB3 /* Essential_Fitness.xcdatamodeld in Sources */,
 				A3B34F6B2A07C050008F175D /* TestAPIs.swift in Sources */,
+				A38A493F2A0800A50057855E /* Extention.swift in Sources */,
 				A36F58652A06697200725029 /* Validator.swift in Sources */,
 				A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */,
 				A36F58672A067BD700725029 /* User.swift in Sources */,

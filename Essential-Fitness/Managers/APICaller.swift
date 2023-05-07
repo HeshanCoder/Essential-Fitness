@@ -25,11 +25,12 @@ class APICaller {
         
         collection.getDocuments { result, error in
             guard let data = result, error == nil else {
+                completion(.failure(APIError.failedTogetData))
                 return
             }
             
             let upperbodyworkoutwehghtlossCollection =  data.documents.map{ doc -> Workout in
-                print(doc.data())
+                //print(doc.data())
                 let docSnapShot = doc.data()
                 
                 let media_type = docSnapShot["media_type"] as? String
@@ -47,8 +48,9 @@ class APICaller {
             //print(upperbodyworkoutwehghtlossCollection)
             completion(.success(upperbodyworkoutwehghtlossCollection))
         }
-        completion(.failure(APIError.failedTogetData))
+        
     }
+    
     
 }
 
