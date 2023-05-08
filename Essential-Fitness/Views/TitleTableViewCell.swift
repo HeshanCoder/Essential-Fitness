@@ -90,7 +90,7 @@ class TitleTableViewCell: UITableViewCell {
     // hold the label and poster
     public func configure(with model: TitleViewModel) {
         
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {
+        guard let url = URL(string: "\(model.posterURL)") else {
             return
         }
         // set image with url

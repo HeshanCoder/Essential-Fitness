@@ -37,6 +37,7 @@ struct Workout: Codable{
     var calories_count: Int?
     var reps_and_sets: String?
     var minute_average: String?
+    var video_URL: String?
  }
 /*
  struct Book: Identifiable, Codable {

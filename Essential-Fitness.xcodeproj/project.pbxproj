@@ -31,6 +31,8 @@
 		A33B7D2F2A06C843001D23D2 /* MainHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B7D2E2A06C843001D23D2 /* MainHeaderUIView.swift */; };
 		A33B7D312A06D0AD001D23D2 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B7D302A06D0AD001D23D2 /* APICaller.swift */; };
 		A33B7D332A06D19E001D23D2 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B7D322A06D19E001D23D2 /* Workout.swift */; };
+		A33F77232A095DA9000664AF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F77222A095DA9000664AF /* DownloadsViewController.swift */; };
+		A33F77262A095E62000664AF /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F77252A095E62000664AF /* DataPersistenceManager.swift */; };
 		A36F585E2A0652B100725029 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F585D2A0652B100725029 /* AuthService.swift */; };
 		A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58602A06545800725029 /* RegiserUserRequest.swift */; };
 		A36F58632A065CC900725029 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58622A065CC900725029 /* LoginUserRequest.swift */; };
@@ -103,6 +105,8 @@
 		A33B7D2E2A06C843001D23D2 /* MainHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderUIView.swift; sourceTree = "<group>"; };
 		A33B7D302A06D0AD001D23D2 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		A33B7D322A06D19E001D23D2 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		A33F77222A095DA9000664AF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		A33F77252A095E62000664AF /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		A36F585D2A0652B100725029 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A36F58602A06545800725029 /* RegiserUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiserUserRequest.swift; sourceTree = "<group>"; };
 		A36F58622A065CC900725029 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		A32A9F922A03CC0700D89FB3 /* Essential-Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A33F77242A095E39000664AF /* Core Data */,
 				A38A494B2A080CB30057855E /* ViewModel */,
 				A36F585F2A06542800725029 /* Models */,
 				A38F72DA2A055577006072CD /* Managers */,
@@ -254,6 +259,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A33F77242A095E39000664AF /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				A33F77252A095E62000664AF /* DataPersistenceManager.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		A36F585F2A06542800725029 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +288,7 @@
 				A36F586D2A06846F00725029 /* BMIViewController.swift */,
 				A36F58712A06863B00725029 /* HelpViewController.swift */,
 				A38A49472A0809F70057855E /* HomeViewController1.swift */,
+				A33F77222A095DA9000664AF /* DownloadsViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -476,6 +490,7 @@
 				A38A494F2A080E9E0057855E /* YoutubeSearchResponse.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
 				A33B7D2F2A06C843001D23D2 /* MainHeaderUIView.swift in Sources */,
+				A33F77232A095DA9000664AF /* DownloadsViewController.swift in Sources */,
 				A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */,
 				A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */,
 				A331EC2F2A04EDE000709897 /* CustomTextField.swift in Sources */,
@@ -492,6 +507,7 @@
 				A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */,
 				A38A494A2A080C880057855E /* TitleTableViewCell.swift in Sources */,
 				A36F58672A067BD700725029 /* User.swift in Sources */,
+				A33F77262A095E62000664AF /* DataPersistenceManager.swift in Sources */,
 				A32A9F942A03CC0700D89FB3 /* AppDelegate.swift in Sources */,
 				A36F586C2A06843300725029 /* MyPlanViewController.swift in Sources */,
 				A38A494D2A080CF00057855E /* TitleViewModel.swift in Sources */,

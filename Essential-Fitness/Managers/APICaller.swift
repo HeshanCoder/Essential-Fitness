@@ -53,8 +53,9 @@ class APICaller {
                 let calories_count = docSnapShot["calories_count"] as? Int
                 let reps_and_sets = docSnapShot["reps_and_sets"] as? String
                 let minute_average = docSnapShot["minute_average"] as? String
+                let video_URL = docSnapShot["video_URL"] as? String
                 
-                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average)
+                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average,video_URL: video_URL)
             }
             
             //print(upperbodyworkoutwehghtlossCollection)
@@ -86,8 +87,9 @@ class APICaller {
                 let calories_count = docSnapShot["calories_count"] as? Int
                 let reps_and_sets = docSnapShot["reps_and_sets"] as? String
                 let minute_average = docSnapShot["minute_average"] as? String
+                let video_URL = docSnapShot["video_URL"] as? String
                 
-                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average)
+                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average,video_URL: video_URL)
             }
             
             //print(upperbodyworkoutwehghtlossCollection)
@@ -117,8 +119,9 @@ class APICaller {
                 let calories_count = docSnapShot["calories_count"] as? Int
                 let reps_and_sets = docSnapShot["reps_and_sets"] as? String
                 let minute_average = docSnapShot["minute_average"] as? String
+                let video_URL = docSnapShot["video_URL"] as? String
                 
-                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average)
+                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average,video_URL: video_URL)
             }
             
             //print(upperbodyworkoutwehghtlossCollection)
@@ -150,8 +153,9 @@ class APICaller {
                 let calories_count = docSnapShot["calories_count"] as? Int
                 let reps_and_sets = docSnapShot["reps_and_sets"] as? String
                 let minute_average = docSnapShot["minute_average"] as? String
+                let video_URL = docSnapShot["video_URL"] as? String
                 
-                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average)
+                return Workout(id: doc.documentID, media_type: media_type, original_name: original_name, original_title: original_title, poster_path: poster_path, overview: overview, calories_count: calories_count, reps_and_sets: reps_and_sets, minute_average: minute_average,video_URL: video_URL)
             }
             
             //print(upperbodyworkoutwehghtlossCollection)

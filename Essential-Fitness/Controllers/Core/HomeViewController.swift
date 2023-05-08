@@ -46,6 +46,7 @@
             self.view.backgroundColor = .systemBackground
             self.navigationController?.navigationBar.isHidden = true
             
+            setupNavigationUI()
             //self.setupUI()
             //self.label.text = "Fitness App"
             // add this table to our view
@@ -55,7 +56,7 @@
             homeFeedTable.dataSource = self
             
             // hero section
-            configureNavbar()
+            //configureNavbar()
             //homeFeedTable.tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
             //view.bounds.width = full width
             let headerView = MainHeaderUIView(frame:  CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
@@ -106,6 +107,10 @@
                 label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             ])
+        }
+        
+        private func setupNavigationUI(){
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapLogout))
         }
         
         @objc private func didTapLogout() {
