@@ -13,6 +13,8 @@ class CustomTextField: UITextField {
         case username
         case email
         case password
+        case weight
+        case height
     }
     
     private let authFieldType: CustomTextFieldType
@@ -42,6 +44,12 @@ class CustomTextField: UITextField {
             self.placeholder = "Password"
             self.textContentType = .oneTimeCode
             self.isSecureTextEntry = true
+            
+        case .height:
+            self.placeholder = "Weight"
+            
+        case .weight:
+            self.placeholder = "Height"
         }
         
     }
