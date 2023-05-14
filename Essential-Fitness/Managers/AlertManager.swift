@@ -94,3 +94,10 @@ extension AlertManager {
         self.showBasicAlert(on: vc, title: "Values or one of the values you added is wrong. \n use numbers only", message: nil)
     }
 }
+
+extension AlertManager {
+    
+    public static func showUpdateUserError(on vc: UIViewController) {
+        self.showBasicAlert(on: vc, title: "Error happen when updating", message: nil)
+    }
+}

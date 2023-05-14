@@ -58,6 +58,8 @@
 		A3B34F702A07C8A2008F175D /* upfatburn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */; };
 		A3B34F712A07C8A2008F175D /* upmaintain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6E2A07C8A2008F175D /* upmaintain.jpg */; };
 		A3B34F722A07C8A2008F175D /* upmusclebuild.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6F2A07C8A2008F175D /* upmusclebuild.jpg */; };
+		A3D288092A10D15500AD6179 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D288082A10D15500AD6179 /* TermsAndConditionViewController.swift */; };
+		A3D2880B2A110CA100AD6179 /* UpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2880A2A110CA100AD6179 /* UpdateUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,8 @@
 		A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upfatburn.jpg; sourceTree = "<group>"; };
 		A3B34F6E2A07C8A2008F175D /* upmaintain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upmaintain.jpg; sourceTree = "<group>"; };
 		A3B34F6F2A07C8A2008F175D /* upmusclebuild.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upmusclebuild.jpg; sourceTree = "<group>"; };
+		A3D288082A10D15500AD6179 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
+		A3D2880A2A110CA100AD6179 /* UpdateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,7 @@
 				A36F58662A067BD700725029 /* User.swift */,
 				A33B7D322A06D19E001D23D2 /* Workout.swift */,
 				A38A494E2A080E9E0057855E /* YoutubeSearchResponse.swift */,
+				A3D2880A2A110CA100AD6179 /* UpdateUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				A36F58712A06863B00725029 /* HelpViewController.swift */,
 				A38A49472A0809F70057855E /* HomeViewController1.swift */,
 				A33F77222A095DA9000664AF /* DownloadsViewController.swift */,
+				A3D288082A10D15500AD6179 /* TermsAndConditionViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				A32A9FCD2A040A1900D89FB3 /* RegisterViewController.swift in Sources */,
 				A38A494F2A080E9E0057855E /* YoutubeSearchResponse.swift in Sources */,
 				A32A9FCF2A040A3A00D89FB3 /* HomeViewController.swift in Sources */,
+				A3D2880B2A110CA100AD6179 /* UpdateUser.swift in Sources */,
 				A33B7D2F2A06C843001D23D2 /* MainHeaderUIView.swift in Sources */,
 				A33F77232A095DA9000664AF /* DownloadsViewController.swift in Sources */,
 				A31A75A22A053B0F00256B62 /* WebViewerController.swift in Sources */,
@@ -512,6 +519,7 @@
 				A36F586C2A06843300725029 /* MyPlanViewController.swift in Sources */,
 				A38A494D2A080CF00057855E /* TitleViewModel.swift in Sources */,
 				A32A9F962A03CC0700D89FB3 /* SceneDelegate.swift in Sources */,
+				A3D288092A10D15500AD6179 /* TermsAndConditionViewController.swift in Sources */,
 				A36F585E2A0652B100725029 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

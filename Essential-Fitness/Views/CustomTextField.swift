@@ -15,6 +15,8 @@ class CustomTextField: UITextField {
         case password
         case weight
         case height
+        case birthday
+        case fitnessGoal
     }
     
     private let authFieldType: CustomTextFieldType
@@ -47,9 +49,14 @@ class CustomTextField: UITextField {
             
         case .height:
             self.placeholder = "Weight"
-            
+            self.keyboardType = .decimalPad
         case .weight:
             self.placeholder = "Height"
+            self.keyboardType = .decimalPad
+        case .birthday:
+            self.placeholder = "Birthday"
+        case .fitnessGoal:
+            self.placeholder = "Fitness Goal"
         }
         
     }
