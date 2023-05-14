@@ -86,7 +86,7 @@ class HelpViewController: UIViewController {
         birthdayDatePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         
         setUpUI()
-        
+        fetchUser()
     }
     
     private func setUpUI(){
@@ -181,8 +181,39 @@ class HelpViewController: UIViewController {
         ageLabel.text = "Age : \(age)"
     }
     
+    private func fetchUser(){
+        
+        AuthService.shared.fetchUser (completion: { [weak self] user, error in
+            guard let self = self else { return }
+            if let error = error{
+                print(error)
+                AlertManager.showFetchUserError(on: self)
+                return
+            }else{
+                self.titleLabel.text = user?.username ?? "N/A"
+                self.subTitleLabel.text = user?.email ?? "N/A"
+                self.weightField.text = user?.weight ?? "N/A"
+                self.heightField.text = user?.height ?? "N/A"
+                self.fitnessGoalField.text = user?.finessGoal ?? "N/A"
+                self.birthdayVal = user?.birthday ?? "N/A"
+            }
+        })
+    }
+    
+    
     @objc func updateInfo() {
         print("update Tapped")
+        
+        guard let height = Double(heightField.text ?? ""),
+              height > 0 else {
+            AlertManager.showHeightFieldError(on: self)
+            return
+        }
+        guard let weight = Double(weightField.text ?? ""),
+              weight > 0 else {
+            AlertManager.showWeightFieldError(on: self)
+            return
+        }
         
         let updateuser = UpdateUser(
             weight: self.weightField.text ?? "0.0", height: self.heightField.text ?? "0.0", finessGoal: self.fitnessGoalField.text ?? "", birthday: self.birthdayVal ?? "")
@@ -196,22 +227,9 @@ class HelpViewController: UIViewController {
                 AlertManager.showUpdateUserError(on: self)
                 return
             } else {
-                AuthService.shared.fetchUser { user, error in
-                    if let error = error{
-                        print(error)
-                        AlertManager.showUpdateUserError(on: self)
-                        return
-                    }else{
-                        self.titleLabel.text = user?.username ?? "N/A"
-                        self.subTitleLabel.text = user?.email ?? "N/A"
-                        self.weightField.text = user?.weight ?? "N/A"
-                        self.heightField.text = user?.height ?? "N/A"
-                        self.fitnessGoalField.text = user?.finessGoal ?? "N/A"
-                        self.birthdayVal = user?.birthday ?? "N/A"
-                    }
-                }
+                self.fetchUser()
             }
         })
     }
-
+    
 }

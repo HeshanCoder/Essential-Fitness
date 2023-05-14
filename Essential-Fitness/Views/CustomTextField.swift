@@ -48,10 +48,10 @@ class CustomTextField: UITextField {
             self.isSecureTextEntry = true
             
         case .height:
-            self.placeholder = "Weight"
+            self.placeholder = "Weight (kg)"
             self.keyboardType = .decimalPad
         case .weight:
-            self.placeholder = "Height"
+            self.placeholder = "Height (m)"
             self.keyboardType = .decimalPad
         case .birthday:
             self.placeholder = "Birthday"

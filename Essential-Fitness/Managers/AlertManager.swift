@@ -101,3 +101,21 @@ extension AlertManager {
         self.showBasicAlert(on: vc, title: "Error happen when updating", message: nil)
     }
 }
+
+extension AlertManager {
+    
+    public static func showHeightFieldError(on vc: UIViewController) {
+        self.showBasicAlert(on: vc, title: "Value of Height field is not in \n correct format (select numbers)", message: nil)
+    }
+    
+    public static func showWeightFieldError(on vc: UIViewController) {
+        self.showBasicAlert(on: vc, title: "Value of Weight field is not in \n correct format (select numbers)", message: nil)
+    }
+}
+
+
+extension AlertManager {
+    public static func showFetchUserError(on vc: UIViewController) {
+        self.showBasicAlert(on: vc, title: "Unable to get user info", message: nil)
+    }
+}

@@ -23,7 +23,7 @@ class MainTabViewController: UITabBarController {
         // hide top navogation bar
         //vc1.isNavigationBarHidden = true
         //vc2.isNavigationBarHidden = true
-        vc3.isNavigationBarHidden = true
+        //vc3.isNavigationBarHidden = true
         //vc4.isNavigationBarHidden = true
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
