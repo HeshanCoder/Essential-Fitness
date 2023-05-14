@@ -52,6 +52,15 @@ class BMIViewController: UIViewController {
         return label
     }()
     
+    private let overviewLabel: UILabel = {
+        
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0 // that means this can take multiple lines
+        label.text = "Body Mass Index, or BMI, is a measure of body fat based on a person's weight and height. It's calculated by dividing a person's weight in kilograms by the square of their height in meters. BMI ranges are generally categorized as underweight, normal weight, overweight, and obese. A high BMI can increase a person's risk for various health problems, such as heart disease, diabetes, and certain types of cancer. However, it's important to note that BMI is not a perfect measure of body fatness and may not be accurate for certain groups of people, such as athletes or the elderly. \nBMI is often used as a screening tool to assess whether a person's weight is in a healthy range or not. But, it should not be used as the sole determinant of a person's health status. Other factors, such as diet, physical activity level, and family history, should also be taken into consideration when evaluating a person's overall health. Therefore, while BMI is a useful tool, it's important to understand its limitations and use it in combination with other assessments to evaluate a person's health and well-being."
+        return label
+    }()
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -69,6 +78,7 @@ class BMIViewController: UIViewController {
         view.addSubview(genderSegmentedControl)
         view.addSubview(calculateButton)
         view.addSubview(resultLabel)
+        view.addSubview(overviewLabel)
         
         let margin: CGFloat = 10
         
@@ -94,6 +104,11 @@ class BMIViewController: UIViewController {
             resultLabel.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: margin),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            
+            overviewLabel.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: margin),
+            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+ 
         ])
         
         // Apply styling
@@ -127,7 +142,7 @@ class BMIViewController: UIViewController {
               let heightText = heightTextField.text,
               let height = Double(heightText),
               height > 0 else {
-            resultLabel.text = "Invalid input"
+            AlertManager.showInvalideBMICalculationError(on: self)
             return
         }
         

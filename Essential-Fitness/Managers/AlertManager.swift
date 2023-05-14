@@ -87,3 +87,10 @@ extension AlertManager {
         self.showBasicAlert(on: vc, title: "Invalid Username", message: "Please enter a valid username.")
     }
 }
+
+extension AlertManager {
+    
+    public static func showInvalideBMICalculationError(on vc: UIViewController) {
+        self.showBasicAlert(on: vc, title: "Values or one of the values you added is wrong. \n use numbers only", message: nil)
+    }
+}
