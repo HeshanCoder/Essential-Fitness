@@ -38,7 +38,7 @@ class HelpViewController: UIViewController {
     }()
     
     
-    private let birthdayDatePicker: UIDatePicker = {
+    private var birthdayDatePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .compact
@@ -168,12 +168,17 @@ class HelpViewController: UIViewController {
     
     @objc func datePickerValueChanged(sender: UIDatePicker) {
         print("touch")
+        self.convertAge(date: sender.date)
+    }
+    
+    
+    func convertAge(date: Date) {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         
         let calendar = Calendar.current
-        let dateString = formatter.string(from: sender.date)
-        let ageComponents = calendar.dateComponents([.year], from: sender.date, to: Date())
+        let dateString = formatter.string(from: date)
+        let ageComponents = calendar.dateComponents([.year], from: date, to: Date())
         let age = ageComponents.year ?? 0
         //ageLabel.text = formatter.string(from: sender.date)
         ageValue = String(age)
@@ -190,12 +195,31 @@ class HelpViewController: UIViewController {
                 AlertManager.showFetchUserError(on: self)
                 return
             }else{
+                
+    
+                //self.birthdayDatePicker.date = dateformater.date(from: "May 12, 1985") ?? "May 12, 1985"
+                //(from: user?.birthday)
                 self.titleLabel.text = user?.username ?? "N/A"
                 self.subTitleLabel.text = user?.email ?? "N/A"
                 self.weightField.text = user?.weight ?? "N/A"
                 self.heightField.text = user?.height ?? "N/A"
                 self.fitnessGoalField.text = user?.finessGoal ?? "N/A"
                 self.birthdayVal = user?.birthday ?? "N/A"
+                
+                // Create a date formatter
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM d, yyyy"
+
+                // Convert the date string to a Date object
+                if let date = dateFormatter.date(from: user!.birthday) {
+                    self.birthdayDatePicker.datePickerMode = .date
+                    self.birthdayDatePicker.date = date
+                    self.convertAge(date: date)
+                    print(self.birthdayDatePicker.date)
+                    
+                } else {
+                    print("Failed to convert the date string.")
+                }
             }
         })
     }
