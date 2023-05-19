@@ -9,8 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // using created AuthHeaderView UIView custom componnent
-    private let headerView = AuthHeaderView(title: "HI! Welcome Back", subTitle: "Sign into Your Account")
+    private let headerView = AuthHeaderView(title: "Login", subTitle: "HI! Welcome back")
     
     private let emailField = CustomTextField(fieldType: .email)
     private let passwordField = CustomTextField(fieldType: .password)
@@ -23,33 +22,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         
-        let caLayer = CAGradientLayer()
-        caLayer.frame = view.bounds
-        caLayer.colors = [
-            UIColor.systemGreen.cgColor,
-            UIColor.systemYellow.cgColor
-        ]
-        
-        view.layer.addSublayer(caLayer)
+        self.addGradient()
         self.setUpUI()
         
-        // Registering events. (Target: is the button itself, action: an action to happend. exampale a method, for : UI event)
+        // Registering events.
         self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
         self.newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
         self.forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
     }
     
+    // call whenever you hit sign in button
     @objc func didTapSignIn(){
-        //print("DEBUG PRINT:", "didTapSignIn")
-        /*
-         let vc = HomeViewController()
-         let nav = UINavigationController(rootViewController: vc)
-         nav.modalPresentationStyle = .fullScreen
-         //vc.modalPresentationStyle = .fullScreen
-         //self.present(vc, animated: false, completion: nil)
-         self.present(nav, animated: false, completion: nil)
-         
-         */
+        
         let loginRequest = LoginUserRequest(
             email: self.emailField.text ?? "",
             password: self.passwordField.text ?? ""
@@ -59,7 +43,7 @@ class LoginViewController: UIViewController {
             AlertManager.showInvalidEmailAlert(on: self)
             return
         }
-
+        
         if !Validator.isPasswordValid(for: loginRequest.password) {
             AlertManager.showInvalidPasswordAlert(on: self)
             return
@@ -78,13 +62,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapNewUser(){
-        //print("DEBUG PRINT:", "didTapNewUser")
         let vc = RegisterViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func didTapForgotPassword(){
-        //print("DEBUG PRINT:", "didTapNewUser")
         let vc = ForgotPasswordViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -92,13 +74,21 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
-        // dev perpose
-        //self.didTapNewUser()
-        //AlertManager.showSignInErrorAlert(on: self)
     }
     
-    func setUpUI(){
+    private func addGradient(){
+        let caLayer = CAGradientLayer()
+        caLayer.frame = view.bounds
+        caLayer.colors = [
+            UIColor.systemGreen.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
+        
+        view.layer.addSublayer(caLayer)
+    }
+    
+    // Build the UI
+    private func setUpUI(){
         self.view.addSubview(headerView)
         self.view.addSubview(emailField)
         self.view.addSubview(passwordField)
@@ -146,9 +136,5 @@ class LoginViewController: UIViewController {
             self.forgotPasswordButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85)
             
         ])
-        
-        //headerView.backgroundColor = .red
-        //usernameField.backgroundColor = .green
     }
-    
 }

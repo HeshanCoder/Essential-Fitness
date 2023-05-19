@@ -10,7 +10,7 @@ import UIKit
 class BMIViewController: UIViewController {
     
     // UI Elements
-  
+  /*
     private let weightTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Weight (kg)"
@@ -19,9 +19,10 @@ class BMIViewController: UIViewController {
         textField.backgroundColor = .secondarySystemBackground
         return textField
     }()
-
-    //private let weightTextField = CustomTextField(fieldType: .height)
-    
+*/
+    private let weightTextField = CustomTextField(fieldType: .weight)
+    private let heightTextField = CustomTextField(fieldType: .height)
+    /*
     private let heightTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Height (m)"
@@ -30,6 +31,7 @@ class BMIViewController: UIViewController {
         textField.backgroundColor = .secondarySystemBackground
         return textField
     }()
+     */
     
     private let genderSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Male", "Female"])
@@ -53,13 +55,14 @@ class BMIViewController: UIViewController {
         return label
     }()
     
+    
     private let overviewLabel: UILabel = {
         
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0 // that means this can take multiple lines
-        label.text = "Body Mass Index, or BMI, is a measure of body fat based on a person's weight and height. It's calculated by dividing a person's weight in kilograms by the square of their height in meters. BMI ranges are generally categorized as underweight, normal weight, overweight, and obese. A high BMI can increase a person's risk for various health problems, such as heart disease, diabetes, and certain types of cancer. However, it's important to note that BMI is not a perfect measure of body fatness and may not be accurate for certain groups of people, such as athletes or the elderly. \nBMI is often used as a screening tool to assess whether a person's weight is in a healthy range or not. But, it should not be used as the sole determinant of a person's health status. Other factors, such as diet, physical activity level, and family history, should also be taken into consideration when evaluating a person's overall health. Therefore, while BMI is a useful tool, it's important to understand its limitations and use it in combination with other assessments to evaluate a person's health and well-being."
+        label.text = ""
         return label
     }()
     // MARK: - Lifecycle
@@ -69,7 +72,7 @@ class BMIViewController: UIViewController {
         
         self.view.backgroundColor = .systemBackground
         title = "BMI Calculator"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
@@ -83,9 +86,7 @@ class BMIViewController: UIViewController {
         view.layer.addSublayer(caLayer)
         setupUI()
     }
-    
-    // MARK: - UI Setup
-    
+
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -96,16 +97,25 @@ class BMIViewController: UIViewController {
         view.addSubview(resultLabel)
         view.addSubview(overviewLabel)
         
-        let margin: CGFloat = 10
+        let margin: CGFloat = 15
+        weightTextField.translatesAutoresizingMaskIntoConstraints = false
+        weightTextField.textColor = .secondarySystemBackground
+        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight (kg)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        heightTextField.translatesAutoresizingMaskIntoConstraints = false
+        heightTextField.textColor = .secondarySystemBackground
+        heightTextField.attributedPlaceholder = NSAttributedString(string: "Height (m)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         NSLayoutConstraint.activate([
             weightTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin),
             weightTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             weightTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            weightTextField.heightAnchor.constraint(equalToConstant: 50),
             
             heightTextField.topAnchor.constraint(equalTo: weightTextField.bottomAnchor, constant: margin),
             heightTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             heightTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            heightTextField.heightAnchor.constraint(equalToConstant: 50),
             
             genderSegmentedControl.topAnchor.constraint(equalTo: heightTextField.bottomAnchor, constant: margin),
             genderSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -129,6 +139,7 @@ class BMIViewController: UIViewController {
         
         // Apply styling
         //weightTextField.backgroundColor = .white
+        /*
         weightTextField.layer.cornerRadius = 8
         weightTextField.layer.borderWidth = 1
         weightTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -145,9 +156,10 @@ class BMIViewController: UIViewController {
         calculateButton.backgroundColor = .systemBlue
         calculateButton.setTitleColor(.black, for: .normal)
         calculateButton.layer.cornerRadius = 8
-        
+         */
         resultLabel.numberOfLines = 0
         resultLabel.textAlignment = .center
+ 
     }
     
     // MARK: - BMI Calculation

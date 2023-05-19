@@ -25,7 +25,8 @@ class CustomTextField: UITextField {
         self.authFieldType = fieldType
         super.init(frame: .zero)
         
-        self.backgroundColor = .secondarySystemBackground
+        self.backgroundColor = .yellow
+        self.borderStyle = .roundedRect
         self.layer.cornerRadius = 10
         
         self.returnKeyType = .done
@@ -48,10 +49,10 @@ class CustomTextField: UITextField {
             self.isSecureTextEntry = true
             
         case .height:
-            self.placeholder = "Weight (kg)"
+            self.placeholder = "Height (m)"
             self.keyboardType = .decimalPad
         case .weight:
-            self.placeholder = "Height (m)"
+            self.placeholder = "Weight (kg)"
             self.keyboardType = .decimalPad
         case .birthday:
             self.placeholder = "Birthday"

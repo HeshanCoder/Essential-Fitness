@@ -20,11 +20,6 @@ class MainTabViewController: UITabBarController {
         
     
         // https://sarunw.com/posts/hide-navigation-bar-on-scroll-in-uikit/
-        // hide top navogation bar
-        //vc1.isNavigationBarHidden = true
-        //vc2.isNavigationBarHidden = true
-        //vc3.isNavigationBarHidden = true
-        //vc4.isNavigationBarHidden = true
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc2.tabBarItem.image = UIImage(systemName: "list.dash")
@@ -34,12 +29,10 @@ class MainTabViewController: UITabBarController {
         vc1.title = "Home"
         vc2.title = "My Plan"
         vc3.title = "BMI"
-        vc4.title = "Help"
+        vc4.title = "User Details"
         
-        
-        // change the defaut blue color
-        tabBar.tintColor = .label
-        
+        tabBar.tintColor = .black
+        tabBar.barTintColor = UIColor.yellow
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
         //  */
     }

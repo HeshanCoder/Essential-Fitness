@@ -22,7 +22,7 @@ class HomeViewController1: UIViewController {
         view.backgroundColor = .systemBackground
         
         title = "Home"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
@@ -88,12 +88,6 @@ extension HomeViewController1: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-         // we acccess indexpath of row
-         cell.textLabel?.text = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "Unknown"
-         return cell
-         */
         // deque the cell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
