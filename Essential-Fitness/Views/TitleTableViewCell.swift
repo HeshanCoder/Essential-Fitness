@@ -34,7 +34,7 @@ class TitleTableViewCell: UITableViewCell {
         let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .white
+        button.tintColor = .secondarySystemBackground
         return button
     }()
     
@@ -53,7 +53,7 @@ class TitleTableViewCell: UITableViewCell {
         contentView.addSubview(titlesPosterUIImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(playTitleButton)
-        
+    
         applyConstraints()
         
     }

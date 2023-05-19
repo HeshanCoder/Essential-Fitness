@@ -14,7 +14,6 @@ import CoreData
 // responsible for downloading the data and work and talk with core data API
 // It is not good practice to call core data API from directly where it uses.
 // so keep seperate classes for access core data is the best practice
-
 class DataPersistenceManager {
     
     // to pass defferent kind of errors
@@ -31,11 +30,11 @@ class DataPersistenceManager {
     // downloading a title with model and that pass from collectionTableViewCell.
     // we have complesion handler and it return a result of Result<Void, Error>
     func downloadTitleWith(model: Workout, completion: @escaping (Result<Void, Error>) -> Void) {
-       //  we want to save the data that passing to this method.
+        // we want to save the data that passing to this method.
         // saving data in the persistance model is 2 step proccess
         
         // we want to tell to context manager that we want to save somthing ( exactly what we gonna be saving inside our database)
-        //  then tell to the context mabager or the contex API to store that data solid in the database
+        // then tell to the context mabager or the contex API to store that data solid in the database
         
         // need a reference to the app delegate ( to access Context Manager)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -101,7 +100,6 @@ class DataPersistenceManager {
         }
         
         let context = appDelegate.persistentContainer.viewContext
-        
         
         context.delete(model) // asking to delete the recored.  softly deleted
         

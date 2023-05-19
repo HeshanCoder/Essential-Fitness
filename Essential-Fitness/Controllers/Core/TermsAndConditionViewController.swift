@@ -63,32 +63,8 @@ class TermsAndConditionViewController: UIViewController {
     @objc private func agreeButtonTapped() {
         // Handle user agreement and Firebase login here
         // Show next view controller after successful login
-        let userDetailViewController = UserDetailViewController()
+        let userDetailViewController = UserDetailsViewController()
         navigationController?.pushViewController(userDetailViewController, animated: true)
     }
 }
 
-class UserDetailViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Fetch and display user details here
-        // Customize this view controller according to your requirements
-        view.backgroundColor = .white
-        title = "User Details"
-        
-        let userDetailsLabel = UILabel()
-        userDetailsLabel.translatesAutoresizingMaskIntoConstraints = false
-        userDetailsLabel.text = "User Details: \n\nName: John Doe\nAge: 25\nGender: Male"
-        userDetailsLabel.numberOfLines = 0
-        view.addSubview(userDetailsLabel)
-        
-        let margins = view.safeAreaLayoutGuide
-        let constraints = [
-            userDetailsLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 16),
-            userDetailsLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 16),
-            userDetailsLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -16),
-            userDetailsLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -16)
-        ]
-        NSLayoutConstraint.activate(constraints)
-    }
-}

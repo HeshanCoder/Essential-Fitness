@@ -10,19 +10,27 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // using created AuthHeaderView UIView custom componnent
-    private let headerView = AuthHeaderView(title: "Sign In", subTitle: "Sign into Your Account")
+    private let headerView = AuthHeaderView(title: "HI! Welcome Back", subTitle: "Sign into Your Account")
     
     private let emailField = CustomTextField(fieldType: .email)
     private let passwordField = CustomTextField(fieldType: .password)
     
     private let signInButton = CustomButton(title: "Sign In", hasBackground: true, fontSize: .big)
-    private let newUserButton = CustomButton(title: "New user? Create Account", fontSize: .med)
-    private let forgotPasswordButton = CustomButton(title: "Forgot Password?", fontSize: .small)
+    private let newUserButton = CustomButton(title: "New user? Create Account", hasBackground: true, fontSize: .med)
+    private let forgotPasswordButton = CustomButton(title: "Forgot Password?", hasBackground: true, fontSize: .small)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         
+        let caLayer = CAGradientLayer()
+        caLayer.frame = view.bounds
+        caLayer.colors = [
+            UIColor.systemGreen.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
+        
+        view.layer.addSublayer(caLayer)
         self.setUpUI()
         
         // Registering events. (Target: is the button itself, action: an action to happend. exampale a method, for : UI event)

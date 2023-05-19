@@ -16,7 +16,7 @@ class MainTabViewController: UITabBarController {
         let vc1 = UINavigationController(rootViewController: HomeViewController1())
         let vc2 = UINavigationController(rootViewController: MyPlanViewController())
         let vc3 = UINavigationController(rootViewController: BMIViewController())
-        let vc4 = UINavigationController(rootViewController: HelpViewController())
+        let vc4 = UINavigationController(rootViewController: UserDetailsViewController())
         
     
         // https://sarunw.com/posts/hide-navigation-bar-on-scroll-in-uikit/

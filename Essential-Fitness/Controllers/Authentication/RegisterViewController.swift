@@ -47,6 +47,15 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         
+        let caLayer = CAGradientLayer()
+        caLayer.frame = view.bounds
+        caLayer.colors = [
+            UIColor.systemGreen.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
+        
+        view.layer.addSublayer(caLayer)
+        
         self.setUpUI()
         
         self.termTextView.delegate = self
@@ -58,13 +67,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func didTapSignUp(){
-        print("DEBUG PRINT:", "didTapSignUp")
-        /*
-         let webViewer = WebViewerController(with: "https://firebase.google.com/support/privacy#:~:text=Firebase%20restricts%20access%20to%20a,In%20and%202%2Dfactor%20authentication.")
-         
-         let nav = UINavigationController(rootViewController: webViewer)
-         self.present(nav, animated: true, completion: nil)
-         */
+
         
         let registerUserRequest = RegiserUserRequest(
             username: self.usernameField.text ?? "",

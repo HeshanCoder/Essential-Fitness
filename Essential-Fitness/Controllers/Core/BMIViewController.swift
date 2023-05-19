@@ -27,6 +27,7 @@ class BMIViewController: UIViewController {
         textField.placeholder = "Height (m)"
         textField.keyboardType = .decimalPad
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = .secondarySystemBackground
         return textField
     }()
     
@@ -72,6 +73,14 @@ class BMIViewController: UIViewController {
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
+        let caLayer = CAGradientLayer()
+        caLayer.frame = view.bounds
+        caLayer.colors = [
+            UIColor.systemGreen.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
+        
+        view.layer.addSublayer(caLayer)
         setupUI()
     }
     

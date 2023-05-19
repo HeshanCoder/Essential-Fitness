@@ -66,6 +66,11 @@ class TitlePreviewViewController: UIViewController {
         view.addSubview(overviewLabel)
         view.addSubview(downloadButton)
         
+        //navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.navigationController?.navigationBar.backgroundColor = .none
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(downloadTitleAt))
+        
         downloadButton.addTarget(self, action: #selector(downloadTitleAt), for: .touchUpInside)
         // build the ui by arranging sub views
         configureConstraints()
@@ -88,20 +93,22 @@ class TitlePreviewViewController: UIViewController {
     }
     
     func configureConstraints() {
+        
+        
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
         let webViewConstraints = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            webView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.heightAnchor.constraint(equalToConstant: 300)
         ]
         
-        let titleLabelConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ]
-        
         let overviewLabelConstraints = [
-            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            overviewLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 15),
             overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ]

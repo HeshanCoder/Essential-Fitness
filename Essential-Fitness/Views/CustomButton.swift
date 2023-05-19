@@ -15,6 +15,7 @@ class CustomButton: UIButton {
         case med
         case small
     }
+    
 
     init(title: String, hasBackground: Bool = false, fontSize: FontSize) {
         super.init(frame: .zero)

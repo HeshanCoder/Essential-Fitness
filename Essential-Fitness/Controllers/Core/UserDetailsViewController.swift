@@ -1,20 +1,25 @@
 //
-//  HelpViewController.swift
+//  UserDetailViewController.swift
 //  Essential-Fitness
 //
-//  Created by heshandev on 5/6/23.
+//  Created by heshandev on 5/19/23.
 //
 
 import UIKit
 
-class HelpViewController: UIViewController {
-    
+class UserDetailsViewController: UIViewController {
+
     private let heightField = CustomTextField(fieldType: .height)
     private let weightField = CustomTextField(fieldType: .weight)
     private let fitnessGoalField = CustomTextField(fieldType: .fitnessGoal)
     private var ageValue: String? = "0"
     private var birthdayVal: String? = "0"
     
+    private let gradiantlayer: CAGradientLayer = {
+        let caLayer = CAGradientLayer()
+        //caLayer.frame = view.bounds
+        return caLayer
+    }()
     private let birthdayLabel: UILabel = {
         let birthdayLabel = UILabel()
         birthdayLabel.text = "Birthday : "
@@ -77,12 +82,19 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        title = "Profile"
+        title = "Your Details"
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
+        let caLayer = CAGradientLayer()
+        caLayer.frame = view.bounds
+        caLayer.colors = [
+            UIColor.systemGreen.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
         
+        view.layer.addSublayer(caLayer)
         birthdayDatePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         
         setUpUI()
