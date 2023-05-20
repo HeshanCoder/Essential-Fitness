@@ -124,10 +124,6 @@ class AuthService {
             }
     }
     
-    //if let User = User{
-      //  // do somethig
-   // }
-    
     public func updateUser(with updateUser: UpdateUser,completion: @escaping (Error?) -> Void){
         
         guard let userUID = Auth.auth().currentUser?.uid else { return }

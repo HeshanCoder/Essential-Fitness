@@ -41,7 +41,6 @@ class DataPersistenceManager {
             return
         }
         
-        
         // we want context as well ( to access Context Manager)
         let context = appDelegate.persistentContainer.viewContext
         
