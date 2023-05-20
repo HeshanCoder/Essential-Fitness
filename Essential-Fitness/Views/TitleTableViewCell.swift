@@ -15,7 +15,7 @@ class TitleTableViewCell: UITableViewCell {
     // to hold a image
     private let titlesPosterUIImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true // prevent overflowing the container
         return imageView

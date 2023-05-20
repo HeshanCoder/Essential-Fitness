@@ -48,6 +48,9 @@ class ForgotPasswordViewController: UIViewController {
         emailField.translatesAutoresizingMaskIntoConstraints = false
         resetPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         
+        emailField.textColor = .secondarySystemBackground
+        emailField.attributedPlaceholder = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
         NSLayoutConstraint.activate([
             self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
             self.headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),

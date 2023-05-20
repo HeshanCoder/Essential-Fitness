@@ -141,6 +141,14 @@ class RegisterViewController: UIViewController {
         self.termTextView.translatesAutoresizingMaskIntoConstraints = false
         self.signInButton.translatesAutoresizingMaskIntoConstraints = false
         
+        emailField.textColor = .secondarySystemBackground
+        emailField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        passwordField.textColor = .secondarySystemBackground
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        usernameField.textColor = .secondarySystemBackground
+        usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         NSLayoutConstraint.activate([
             // layoutMarginsGuide will prevent app screen go over status bar
