@@ -116,12 +116,12 @@ extension HomeViewController1: UITableViewDelegate, UITableViewDataSource {
         }
         
         
-        APICaller.shared.getMovie(with: workoutName) { [weak self] result in
+        APICaller.shared.getWorkout(with: workoutName) { [weak self] result in
             switch result {
             case .success(let videoElement):
                 DispatchQueue.main.async {
                     let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: workoutName , youtubeView: videoElement, titleOverview: workout.overview ?? ""), on: workout, isFromHome: true)
+                    vc.configure(with: TitlePreviewViewModel(title: workoutName , youtubeView: videoElement, titleOverview: workout.overview ?? "", timeDuration: workout.minute_average ?? "0m", repCount: workout.reps_and_sets ?? "No reps*", caloriCount: workout.calories_count ?? 0), on: workout, isFromHome: true)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
                 

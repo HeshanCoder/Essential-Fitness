@@ -113,13 +113,13 @@ class DownloadsViewController: UIViewController {
            }
            
            
-           APICaller.shared.getMovie(with: titleName) { [weak self] result in
+           APICaller.shared.getWorkout(with: titleName) { [weak self] result in
                switch result {
                case .success(let videoElement):
                    DispatchQueue.main.async {
                        var wk: Workout?
                        let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: workout.overview ?? ""),on: wk, isFromHome: false)
+                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: workout.overview ?? "", timeDuration: workout.minute_average ?? "0m", repCount: workout.reps_and_sets ?? "No reps*", caloriCount: Int(workout.calories_count ?? 0)),on: wk, isFromHome: false)
                        self?.navigationController?.pushViewController(vc, animated: true)
                    }
                    

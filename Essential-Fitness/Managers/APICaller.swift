@@ -163,7 +163,7 @@ class APICaller {
         }
     }
     
-    func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
+    func getWorkout(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
             
             
             guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}

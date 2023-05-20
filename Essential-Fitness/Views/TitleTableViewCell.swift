@@ -30,10 +30,17 @@ class TitleTableViewCell: UITableViewCell {
     }()
     
     private let playTitleButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
-        button.setImage(image, for: .normal)
+        let button = UIButton(type: .system)
+        //let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+        //button.setImage(image, for: .normal)
+        button.backgroundColor = .yellow
+        button.setTitle("Details", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.contentVerticalAlignment = .center
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
         button.tintColor = .secondarySystemBackground
         return button
     }()
@@ -72,14 +79,15 @@ class TitleTableViewCell: UITableViewCell {
         
         
         let titleLabelConstraints = [
-            titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 15),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ]
         
         
         let playTitleButtonConstraints = [
-            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            playTitleButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            playTitleButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            playTitleButton.widthAnchor.constraint(equalToConstant: 60)
         ]
         
         NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)

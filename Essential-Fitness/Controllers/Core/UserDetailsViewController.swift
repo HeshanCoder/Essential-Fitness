@@ -71,7 +71,7 @@ class UserDetailsViewController: UIViewController {
     }()
     
     private let upadteButton: UIButton = {
-        let button = CustomButton(title: "Update info", hasBackground: true, fontSize: .med)
+        let button = CustomButton(title: "Update", hasBackground: true, fontSize: .med)
         //button.setTitle("Calculate BMI", for: .normal)
         button.addTarget(self, action: #selector(updateInfo), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,9 +83,10 @@ class UserDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         title = "Your Details"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.tabBarController?.navigationController?.navigationBar.isHidden = false
+        //navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
         
         let caLayer = CAGradientLayer()
         caLayer.frame = view.bounds
@@ -122,6 +123,15 @@ class UserDetailsViewController: UIViewController {
         fitnessGoalField.translatesAutoresizingMaskIntoConstraints = false
         upadteButton.translatesAutoresizingMaskIntoConstraints = false
         
+        heightField.textColor = .secondarySystemBackground
+        heightField.attributedPlaceholder = NSAttributedString(string: "Height (m)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        weightField.textColor = .secondarySystemBackground
+        weightField.attributedPlaceholder = NSAttributedString(string: "Weight (kg)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        fitnessGoalField.textColor = .secondarySystemBackground
+        fitnessGoalField.attributedPlaceholder = NSAttributedString(string: "Your Fitness Goals", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
         NSLayoutConstraint.activate([
             
             titleLabel.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 30),
@@ -136,32 +146,33 @@ class UserDetailsViewController: UIViewController {
             ageLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             ageLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
-            heightField.topAnchor.constraint(equalTo: self.ageLabel.bottomAnchor, constant: 12),
-            heightField.centerXAnchor.constraint(equalTo: self.titleLabel.centerXAnchor),
-            heightField.heightAnchor.constraint(equalToConstant: 55),
-            heightField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
+            birthdayLabel.topAnchor.constraint(equalTo: self.ageLabel.bottomAnchor, constant: 22),
+            birthdayLabel.trailingAnchor.constraint(equalTo: self.ageLabel.centerXAnchor,constant: -12),
+            birthdayLabel.heightAnchor.constraint(equalToConstant: 40),
+            birthdayLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.40),
             
-            weightField.topAnchor.constraint(equalTo: self.heightField.bottomAnchor, constant: 22),
-            weightField.centerXAnchor.constraint(equalTo: self.titleLabel.centerXAnchor),
+            birthdayDatePicker.topAnchor.constraint(equalTo: self.ageLabel.bottomAnchor, constant: 22),
+            birthdayDatePicker.leadingAnchor.constraint(equalTo: self.birthdayLabel.trailingAnchor, constant: 35),
+            birthdayDatePicker.heightAnchor.constraint(equalToConstant: 40),
+            birthdayDatePicker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  20),
+            
+            heightField.topAnchor.constraint(equalTo: self.birthdayDatePicker.bottomAnchor, constant: 12),
+            heightField.trailingAnchor.constraint(equalTo: self.ageLabel.centerXAnchor,constant: -12),
+            heightField.heightAnchor.constraint(equalToConstant: 55),
+            heightField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.40),
+            
+            weightField.topAnchor.constraint(equalTo: self.heightField.topAnchor),
+            weightField.leadingAnchor.constraint(equalTo: self.birthdayLabel.trailingAnchor, constant: 35),
             weightField.heightAnchor.constraint(equalToConstant: 55),
-            weightField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
+            weightField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.37),
             
             fitnessGoalField.topAnchor.constraint(equalTo: self.weightField.bottomAnchor, constant: 22),
             fitnessGoalField.centerXAnchor.constraint(equalTo: self.titleLabel.centerXAnchor),
             fitnessGoalField.heightAnchor.constraint(equalToConstant: 55),
             fitnessGoalField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
             
-            birthdayLabel.topAnchor.constraint(equalTo: self.fitnessGoalField.bottomAnchor, constant: 22),
-            birthdayLabel.leadingAnchor.constraint(equalTo: self.weightField.leadingAnchor),
-            birthdayLabel.heightAnchor.constraint(equalToConstant: 40),
-            birthdayLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.40),
             
-            birthdayDatePicker.topAnchor.constraint(equalTo: self.fitnessGoalField.bottomAnchor, constant: 22),
-            birthdayDatePicker.leadingAnchor.constraint(equalTo: self.birthdayLabel.trailingAnchor, constant: 35),
-            birthdayDatePicker.heightAnchor.constraint(equalToConstant: 40),
-            birthdayDatePicker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  20),
-            
-            upadteButton.topAnchor.constraint(equalTo: self.birthdayDatePicker.bottomAnchor, constant: 22),
+            upadteButton.topAnchor.constraint(equalTo: self.fitnessGoalField.bottomAnchor, constant: 22),
             upadteButton.centerXAnchor.constraint(equalTo: self.titleLabel.centerXAnchor),
             upadteButton.heightAnchor.constraint(equalToConstant: 55),
             upadteButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),

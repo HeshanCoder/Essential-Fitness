@@ -65,8 +65,16 @@ class BMIViewController: UIViewController {
         label.text = ""
         return label
     }()
-    // MARK: - Lifecycle
     
+    private let timePicker = UIDatePicker()
+    private let scheduleButton: UIButton = {
+        let button = CustomButton(title: "Schedule Reminder", hasBackground: true, fontSize: .med)
+        //button.setTitle("Calculate BMI", for: .normal)
+        button.addTarget(self, action: #selector(scheduleReminder), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,8 +93,26 @@ class BMIViewController: UIViewController {
         
         view.layer.addSublayer(caLayer)
         setupUI()
+        setupDatePicker()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                    if let error = error {
+                        print("Error requesting notification authorization: \(error.localizedDescription)")
+                    } else {
+                        if granted {
+                            print("Notification authorization granted")
+                        } else {
+                            print("Notification authorization denied")
+                        }
+                    }
+                }
     }
 
+    private func setupDatePicker() {
+         timePicker.datePickerMode = .time
+         timePicker.minimumDate = Date()
+     }
+    
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -96,6 +122,13 @@ class BMIViewController: UIViewController {
         view.addSubview(calculateButton)
         view.addSubview(resultLabel)
         view.addSubview(overviewLabel)
+        view.addSubview(timePicker)
+        view.addSubview(scheduleButton)
+        
+        timePicker.translatesAutoresizingMaskIntoConstraints = false
+        scheduleButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //scheduleButton.addTarget(self, action: #selector(scheduleReminder), for: .touchUpInside)
         
         let margin: CGFloat = 15
         weightTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +140,7 @@ class BMIViewController: UIViewController {
         heightTextField.attributedPlaceholder = NSAttributedString(string: "Height (m)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         NSLayoutConstraint.activate([
-            weightTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin),
+            weightTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             weightTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             weightTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             weightTextField.heightAnchor.constraint(equalToConstant: 50),
@@ -134,6 +167,13 @@ class BMIViewController: UIViewController {
             overviewLabel.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: margin),
             overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            
+            timePicker.centerXAnchor.constraint(equalTo: self.genderSegmentedControl.centerXAnchor),
+            timePicker.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: margin),
+
+            scheduleButton.centerXAnchor.constraint(equalTo: self.genderSegmentedControl.centerXAnchor),
+            scheduleButton.topAnchor.constraint(equalTo: timePicker.bottomAnchor, constant: 20),
+            scheduleButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.85),
  
         ])
         
@@ -161,8 +201,49 @@ class BMIViewController: UIViewController {
         resultLabel.textAlignment = .center
  
     }
-    
-    // MARK: - BMI Calculation
+    @objc private func scheduleReminder() {
+            let selectedTime = timePicker.date
+            let reminderTime = selectedTime.addingTimeInterval(-60) // 1 minute before selected time
+            
+            // Create a notification content
+            let content = UNMutableNotificationContent()
+            content.title = "Reminder"
+            content.body = "It's time!"
+            
+            // Set the notification trigger with the selected time
+            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: selectedTime)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            
+            // Create a notification request
+            let request = UNNotificationRequest(identifier: "ReminderNotification", content: content, trigger: trigger)
+            
+            // Schedule the notification
+            UNUserNotificationCenter.current().add(request) { (error) in
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                } else {
+                    print("Reminder notification scheduled successfully")
+                }
+            }
+            
+            // Schedule a reminder notification 1 minute before the selected time
+            let reminderContent = UNMutableNotificationContent()
+            reminderContent.title = "Reminder"
+            reminderContent.body = "Your event is coming up in 1 minute!"
+            
+            let reminderTriggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminderTime)
+            let reminderTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTriggerDate, repeats: false)
+            
+            let reminderRequest = UNNotificationRequest(identifier: "ReminderNotification", content: reminderContent, trigger: reminderTrigger)
+            
+            UNUserNotificationCenter.current().add(reminderRequest) { (error) in
+                if let error = error {
+                    print("Error scheduling reminder notification: \(error)")
+                } else {
+                    print("Reminder notification scheduled successfully")
+                }
+            }
+        }
     
     @objc private func calculateBMI() {
         guard let weightText = weightTextField.text,

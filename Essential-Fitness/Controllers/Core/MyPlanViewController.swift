@@ -24,12 +24,12 @@ class MyPlanViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         title = "My List"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
 
         view.addSubview(downloadedTable)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
         downloadedTable.delegate = self
         downloadedTable.dataSource = self
         fetchLocalStorageForDownload()
@@ -119,13 +119,13 @@ extension MyPlanViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         
-        APICaller.shared.getMovie(with: titleName) { [weak self] result in
+        APICaller.shared.getWorkout(with: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
                 DispatchQueue.main.async {
                     var wk: Workout?
                     let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? ""), on: wk, isFromHome: false)
+                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? "", timeDuration: title.minute_average ?? "0m", repCount: title.reps_and_sets ?? "No reps*", caloriCount: Int(title.calories_count ?? 0)), on: wk, isFromHome: false)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
                 
