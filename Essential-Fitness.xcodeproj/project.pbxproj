@@ -33,6 +33,7 @@
 		A33B7D332A06D19E001D23D2 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B7D322A06D19E001D23D2 /* Workout.swift */; };
 		A33F77232A095DA9000664AF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F77222A095DA9000664AF /* DownloadsViewController.swift */; };
 		A33F77262A095E62000664AF /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F77252A095E62000664AF /* DataPersistenceManager.swift */; };
+		A3585E402A19216400CB3E4E /* login_screen in Resources */ = {isa = PBXBuildFile; fileRef = A3585E3F2A19216400CB3E4E /* login_screen */; };
 		A36F585E2A0652B100725029 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F585D2A0652B100725029 /* AuthService.swift */; };
 		A36F58612A06545800725029 /* RegiserUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58602A06545800725029 /* RegiserUserRequest.swift */; };
 		A36F58632A065CC900725029 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F58622A065CC900725029 /* LoginUserRequest.swift */; };
@@ -54,9 +55,6 @@
 		A38F72DC2A0555DC006072CD /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F72DB2A0555DC006072CD /* AlertManager.swift */; };
 		A3B34F692A079154008F175D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A3B34F682A079154008F175D /* FirebaseFirestoreSwift-Beta */; };
 		A3B34F6B2A07C050008F175D /* TestAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B34F6A2A07C050008F175D /* TestAPIs.swift */; };
-		A3B34F702A07C8A2008F175D /* upfatburn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */; };
-		A3B34F712A07C8A2008F175D /* upmaintain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6E2A07C8A2008F175D /* upmaintain.jpg */; };
-		A3B34F722A07C8A2008F175D /* upmusclebuild.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B34F6F2A07C8A2008F175D /* upmusclebuild.jpg */; };
 		A3D288092A10D15500AD6179 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D288082A10D15500AD6179 /* TermsAndConditionViewController.swift */; };
 		A3D2880B2A110CA100AD6179 /* UpdateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2880A2A110CA100AD6179 /* UpdateUser.swift */; };
 		A3F3E7132A18025300743B22 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3E7122A18025300743B22 /* UserDetailsViewController.swift */; };
@@ -109,6 +107,7 @@
 		A33B7D322A06D19E001D23D2 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		A33F77222A095DA9000664AF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		A33F77252A095E62000664AF /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		A3585E3F2A19216400CB3E4E /* login_screen */ = {isa = PBXFileReference; lastKnownFileType = file; path = login_screen; sourceTree = "<group>"; };
 		A36F585D2A0652B100725029 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A36F58602A06545800725029 /* RegiserUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegiserUserRequest.swift; sourceTree = "<group>"; };
 		A36F58622A065CC900725029 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
@@ -127,9 +126,6 @@
 		A38A49522A080F610057855E /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		A38F72DB2A0555DC006072CD /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A3B34F6A2A07C050008F175D /* TestAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIs.swift; sourceTree = "<group>"; };
-		A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upfatburn.jpg; sourceTree = "<group>"; };
-		A3B34F6E2A07C8A2008F175D /* upmaintain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upmaintain.jpg; sourceTree = "<group>"; };
-		A3B34F6F2A07C8A2008F175D /* upmusclebuild.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upmusclebuild.jpg; sourceTree = "<group>"; };
 		A3D288082A10D15500AD6179 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
 		A3D2880A2A110CA100AD6179 /* UpdateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUser.swift; sourceTree = "<group>"; };
 		A3F3E7122A18025300743B22 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
@@ -327,9 +323,7 @@
 		A3B34F6C2A07C891008F175D /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A3B34F6D2A07C8A1008F175D /* upfatburn.jpg */,
-				A3B34F6E2A07C8A2008F175D /* upmaintain.jpg */,
-				A3B34F6F2A07C8A2008F175D /* upmusclebuild.jpg */,
+				A3585E3F2A19216400CB3E4E /* login_screen */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -468,12 +462,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3B34F722A07C8A2008F175D /* upmusclebuild.jpg in Resources */,
 				A32A9FA32A03CC0B00D89FB3 /* LaunchScreen.storyboard in Resources */,
-				A3B34F712A07C8A2008F175D /* upmaintain.jpg in Resources */,
+				A3585E402A19216400CB3E4E /* login_screen in Resources */,
 				A32A9FA02A03CC0B00D89FB3 /* Assets.xcassets in Resources */,
 				A331EB9C2A061A5C0023BCD3 /* GoogleService-Info.plist in Resources */,
-				A3B34F702A07C8A2008F175D /* upfatburn.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
