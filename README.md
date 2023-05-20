@@ -4,3 +4,5 @@ Essential-Fitness
 # Test Credentials
 - email : testuser@email.com
 - password : TestUser$123
+
+- go to wiki page for more info
